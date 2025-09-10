@@ -1,13 +1,18 @@
 import './App.css'
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
 
 function App() {
   return (
-      <>
-          <button
-              className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              Click Me
-          </button>
-      </>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Navigate to="/admin-dashboard"/>}></Route>
+              <Route path="/login" element={<Login/>}></Route>
+              <Route path="/login" element={<AdminDashboard/>}></Route>
+          </Routes>
+      </BrowserRouter>
+
   )
 }
 
