@@ -1,41 +1,59 @@
 import React from 'react'
+import useLogin from "../hooks/useLogin.js";
 
 const Login = () => {
-    return (
-        <div className="min-h-screen w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black flex items-center justify-center">
-            {/* Login Card */}
-            <div className="bg-white/20 backdrop-blur-lg shadow-2xl rounded-2xl p-8 sm:p-10 w-full max-w-md border border-white/30">
-                <h2 className="text-2xl font-bold text-white text-center mb-4">Employee Management System</h2>
-                <p className="text-center text-gray-200 mb-6">Sign in to manage employees efficiently</p>
+    const {setEmail, setPassword, email, password, handleSubmit} = useLogin();
 
-                <form className="space-y-5">
+    return (
+        <div
+            className="min-h-screen w-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100 flex items-center justify-center px-4">
+            {/* Login Card */}
+            <div className="bg-white shadow-2xl rounded-2xl p-8 sm:p-10 w-full max-w-md border border-gray-200">
+                {/* Title */}
+                <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-2">
+                    Employee Management
+                </h2>
+                <p className="text-center text-gray-600 mb-8 text-sm">
+                    Sign in to manage your workforce
+                </p>
+
+                {/* Form */}
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     {/* Email */}
                     <div>
-                        <label className="block text-gray-200 mb-2 font-medium">Email</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm">
+                            Email Address
+                        </label>
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="w-full px-4 py-3 rounded-lg border border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent bg-white/30 text-white placeholder-gray-300"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent bg-white text-gray-900 placeholder-gray-400"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
                         />
                     </div>
 
                     {/* Password */}
                     <div>
-                        <label className="block text-gray-200 mb-2 font-medium">Password</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm">
+                            Password
+                        </label>
                         <input
                             type="password"
                             placeholder="Enter your password"
-                            className="w-full px-4 py-3 rounded-lg border border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent bg-white/30 text-white placeholder-gray-300"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent bg-white text-gray-900 placeholder-gray-400"
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
                         />
                     </div>
 
-                    {/* Remember Me + Forgot Password */}
-                    <div className="flex items-center justify-between text-gray-300 text-sm">
+                    {/* Remember + Forgot */}
+                    <div className="flex items-center justify-between text-gray-600 text-sm">
                         <label className="flex items-center space-x-2">
-                            <input type="checkbox" className="accent-green-400" />
+                            <input type="checkbox" className="accent-indigo-500"/>
                             <span>Remember me</span>
                         </label>
-                        <a href="#" className="hover:text-green-400 hover:underline">
+                        <a href="#" className="hover:text-indigo-500 hover:underline">
                             Forgot Password?
                         </a>
                     </div>
@@ -43,14 +61,14 @@ const Login = () => {
                     {/* Login Button */}
                     <button
                         type="submit"
-                        className="w-full py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition duration-300"
+                        className="w-full py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
                     >
                         Login
                     </button>
                 </form>
 
-                {/* Optional Footer */}
-                <p className="text-center text-gray-400 text-sm mt-6">
+                {/* Footer */}
+                <p className="text-center text-gray-500 text-xs mt-8">
                     &copy; {new Date().getFullYear()} Your Company. All rights reserved.
                 </p>
             </div>
