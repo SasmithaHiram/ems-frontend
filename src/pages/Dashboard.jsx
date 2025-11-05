@@ -12,7 +12,7 @@ const Dashboard = () => {
     <div className="flex bg-gray-100 min-h-screen">
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-lg border-r border-gray-200 p-6">
-        <h2 className="text-2xl font-bold text-indigo-600 mb-8">NEXTA LMS</h2>
+        <h2 className="text-2xl font-bold text-indigo-600 mb-8">NEXTA</h2>
 
         <nav className="space-y-3">
           <a className="block py-2.5 px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md cursor-pointer">
