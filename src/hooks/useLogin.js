@@ -1,20 +1,36 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
+import axios from "axios";
+import { useAuth } from "./AuthProvider";
 
 const UseLogin = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log({email, password});
-    }
+  const BE_API = import.meta.env.VITE_BE_API;
 
-    return {
-        setEmail,
-        setPassword,
+  const { login } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(`${BE_API}/api/auth/login`, {
         email,
         password,
-        handleSubmit
+      });
+
+      login(response.data.token);
+    } catch (err) {
+      console.log(err);
     }
-}
-export default UseLogin
+  };
+
+  return {
+    setEmail,
+    setPassword,
+    email,
+    password,
+    handleSubmit,
+  };
+};
+export default UseLogin;
