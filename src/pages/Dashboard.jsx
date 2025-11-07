@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   const fullName = "Sasmitha Hiram";
@@ -18,9 +19,12 @@ const Dashboard = () => {
           <a className="block py-2.5 px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md cursor-pointer">
             Dashboard
           </a>
-          <a className="block py-2.5 px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md cursor-pointer">
-            Courses
-          </a>
+          <Link
+            to="/dashboard/modules"
+            className="block py-2.5 px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md cursor-pointer"
+          >
+            Modules
+          </Link>
           <a className="block py-2.5 px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md cursor-pointer">
             Learning Tracks
           </a>
@@ -47,9 +51,10 @@ const Dashboard = () => {
             </div>
           </div>
         </header>
+        <Outlet />
 
         {/* Dashboard Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
             <h3 className="text-gray-600 text-sm">Total Courses</h3>
             <p className="text-3xl font-bold mt-2 text-gray-900">12</p>
@@ -69,7 +74,7 @@ const Dashboard = () => {
             <h3 className="text-gray-600 text-sm">Pending</h3>
             <p className="text-3xl font-bold mt-2 text-gray-900">1</p>
           </div>
-        </div>
+        </div> */}
       </main>
     </div>
   );
